@@ -1,3 +1,4 @@
+import java.util.Objects;
 /**
  * This class provides various Skill Builder 5 - Array
  * exercises.
@@ -17,8 +18,13 @@ public class SkillBuilder5
      */
     public static double[] prefixAverage(double[] data)
     {
-        //TODO: replace this line with your code.
-        return null;
+        double counter = 0;
+        double [] ray = new double[data.length];
+        for(int index = 0; index < data.length; index++){
+            counter += data[index];
+            ray[index] = counter/ (index+1);
+        }
+        return ray;
     }
 
     /**
@@ -31,8 +37,13 @@ public class SkillBuilder5
      */
     public static int  indexOf(int searchValue, int[] anArray)
     {
-        //TODO: replace this line with your code.
-        return 0;
+        for(int index = 0; index < anArray.length; index++)
+        {
+            if(anArray[index] == searchValue){
+                return index;
+            }
+        }
+        return -1;
     }
 
     /**
@@ -45,8 +56,12 @@ public class SkillBuilder5
      */
     public static int  indexOf(String s, String[] anArray)
     {
-        //TODO: replace this line with your code.
-        return 0;
+        for(int index = 0; index < anArray.length; index++){
+            if(anArray[index] == s){
+                return index;
+            }
+        }
+        return -1;
     }
 
     /**
@@ -58,8 +73,21 @@ public class SkillBuilder5
      */
     public static String[] remove(String s, String[] anArray)
     {
-        // add your code here
-        return null;
+        int counter = 0;
+        int counter2 = 0;
+        for(String strCounter: anArray){
+            if(!Objects.equals(strCounter,s)){
+                counter++;
+            }
+        }
+        String [] ray = new String[counter];
+        for(String strCounter2: anArray){
+            if(!Objects.equals(strCounter2,s)){
+                ray[counter2] = strCounter2;
+                counter2++;
+            }
+        }
+        return ray;
     }
 
     /**
@@ -68,6 +96,14 @@ public class SkillBuilder5
      */
     public static void reverse(int[] anArray)
     {
-        // add your code here
+        int [] ray = new int[anArray.length];
+        for(int index = 0; index < anArray.length; index++){
+            ray[index] = anArray[index];
+        }
+        int counter = 0;
+        for(int x = anArray.length-1; x >= 0; x--){
+            anArray[counter] = ray[x];
+            counter++;
+        }
     }
 }
